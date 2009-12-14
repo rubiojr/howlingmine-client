@@ -1,0 +1,10 @@
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+examples/issues_example.rb
+howlingmine_client.tmproj
+lib/howlingmine.rb
+lib/howlingmine/client.rb
+lib/howlingmine/config.rb
+lib/howlingmine/issue.rb
