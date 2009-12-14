@@ -1,8 +1,8 @@
 module HowlingMine
   class Issue
   
-    attr_accessor :id, :subject, :description, :raw, :created_on
-    attr_accessor :updated_on, :author
+    attr_accessor :id, :subject, :description, :raw, :author
+    attr_writer :created_on, :updated_on
   
     def save
       client = HowlingMine::Client
@@ -16,8 +16,14 @@ module HowlingMine
       }
     
       HowlingMine::Config.params.merge!(params)
-       
-      client.new_issue
+      
+      begin
+        response = client.new_issue
+        @id = response.to_i
+        return true
+      rescue Exception => e
+        return false
+      end
     end
   
     def self.all
@@ -37,12 +43,11 @@ module HowlingMine
         issue = Issue.new
         issue.subject = i['subject']
         issue.description = i['description']
-        issue.id = i['id']
+        issue.id = i['id'].to_i
         issue.raw = i
         issue.created_on = i['created_on']
         issue.updated_on = i['updated_on']
         if i['custom_fields']
-
         end
         issues << issue
       end
