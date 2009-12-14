@@ -1,13 +1,13 @@
 Howling Mine Client
-===============
+====================
 
-http://github.com/rubiojr/howlingmine-client
+AR-esque library to interface with Howling Mine Server:
 
-This is the notifier plugin for integrating apps with Howling Mine Server:
 http://github.com/rubiojr/howlingmine-server
 
-Code based on hoptoad notifier by Thoughbot inc.
+Code loosely based on hoptoad notifier by Thoughbot inc.
 http://github.com/thoughtbot/hoptoad_notifier
+
 
 INSTALLATION
 ------------
