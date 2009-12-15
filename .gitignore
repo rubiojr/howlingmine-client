@@ -1,3 +1,4 @@
 pkg/*
 *.tmproj
 .yardoc/*
+doc/*
