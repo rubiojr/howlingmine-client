@@ -10,5 +10,4 @@ lib/howlingmine/config.rb
 lib/howlingmine/issue.rb
 redmine_test_files/database.yml
 redmine_test_files/redmine.db
-script/console
 test/issue_test.rb
