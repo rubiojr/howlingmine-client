@@ -11,6 +11,8 @@ Hoe.spec 'howlingmine-client' do |p|
   p.description = 'Client library for the Howling Mine Server'
   p.url = 'http://github.com/rubiojr/howlingmine-client'
   p.test_globs = ['test/*_test.rb']
+  p.extra_deps << [ 'rest-client', '>=1.0' ]
+  p.extra_deps << [ 'json', '>=1.0' ]
 end
 
 # vim: syntax=Ruby
