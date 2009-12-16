@@ -19,6 +19,8 @@ end
 issue = HowlingMine::Issue.new
 issue.subject = 'issue number one'
 issue.description = 'oh my, first issue'
+# create a custom field
+issue.custom_fields[:foofield1] = 'value1'
 # if an issue with the same subject exist, the default behaviour
 # is to update the journal creating another comment
 issue.save 

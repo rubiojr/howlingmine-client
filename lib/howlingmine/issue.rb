@@ -4,15 +4,26 @@ module HowlingMine
     attr_accessor :id, :subject, :description, :raw, :author
     attr_writer :created_on, :updated_on
   
+    def custom_fields
+      @custom_fields ||= {}
+    end
+    
+    def method_missing(name, *args)
+      cf = @custom_fields[name]
+      if cf
+        cf['value']
+      else
+        super
+      end
+    end
+    
     def save
       client = HowlingMine::Client
       params = {
         :subject => subject || 'no subject',
         :description => description || '',
         :author => author || 'none',
-        #:custom_fields => {
-        #  :foofield1 => 'field-text'
-        #}.to_yaml
+        :custom_fields => custom_fields.to_yaml
       }
     
       HowlingMine::Config.params.merge!(params)
@@ -48,6 +59,9 @@ module HowlingMine
         issue.created_on = i['created_on']
         issue.updated_on = i['updated_on']
         if i['custom_fields']
+          i['custom_fields'].each do |k,v|
+            issue.custom_fields[k.to_sym] = v
+          end
         end
         issues << issue
       end

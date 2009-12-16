@@ -107,5 +107,20 @@ class TestIssue < Test::Unit::TestCase
       assert HowlingMine::Issue.all.size == 2
     end
   end
+  
+  def test_custom_fields
+     issue = HowlingMine::Issue.new
+     issue.subject = 'issue number 1'
+     issue.description = 'description'
+     issue.custom_fields[:foofield1] = 'value1'
+     assert issue.save
+     
+     issue = HowlingMine::Issue.get 1
+     assert issue.custom_fields.size == 1
+     assert issue.foofield1 == 'value1'
+     assert_raises NoMethodError do
+       assert issue.unexistant_method98847
+     end
+  end
 
 end

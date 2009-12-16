@@ -1,7 +1,11 @@
-=== 0.1.1 / 2009-10-06
+=== 0.1.2 / 2009-12-16
+
+* add support for custom fields
+
+=== 0.1.1 / 2009-12-15
 
 * fix gem dependencies
 
-=== 0.1 / 2009-10-06
+=== 0.1 / 2009-12-15
 
 * Initial release
