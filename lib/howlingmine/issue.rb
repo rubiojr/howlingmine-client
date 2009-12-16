@@ -9,7 +9,7 @@ module HowlingMine
     end
     
     def method_missing(name, *args)
-      cf = @custom_fields[name]
+      cf = custom_fields[name]
       if cf
         cf['value']
       else
