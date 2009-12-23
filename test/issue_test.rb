@@ -122,5 +122,29 @@ class TestIssue < Test::Unit::TestCase
        assert issue.unexistant_method98847
      end
   end
+  
+  def test_find
+    assert HowlingMine::Issue.find(:all).size == 0
+    issue = HowlingMine::Issue.new
+    issue.subject = 'issue number 1'
+    issue.description = 'description'
+    issue.custom_fields[:foofield1] = 'value1'
+    assert issue.save
+    issue = HowlingMine::Issue.find :first
+    assert issue != nil
+    assert issue.subject == 'issue number 1'
+    issue = HowlingMine::Issue.find :last
+    assert issue != nil
+    assert issue.subject == 'issue number 1'
+    issue = HowlingMine::Issue.find 1
+    assert issue != nil
+    assert issue.subject == 'issue number 1'
+    assert_raises RestClient::ResourceNotFound do 
+      HowlingMine::Issue.find 0
+    end
+    assert_raises RestClient::ResourceNotFound do 
+      HowlingMine::Issue.find 2
+    end
+  end
 
 end

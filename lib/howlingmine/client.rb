@@ -22,6 +22,10 @@ module HowlingMine
       def journals 
         RestClient.post("#{HowlingMine::Config.protocol}://#{HowlingMine::Config.host}:#{HowlingMine::Config.port}/howling_mine/journals", :api_key => HowlingMine::Config.api_key, :issue_id => HowlingMine::Config.params[:issue_id])
       end
+      
+      def find
+        RestClient.post("#{HowlingMine::Config.protocol}://#{HowlingMine::Config.host}:#{HowlingMine::Config.port}/howling_mine/find", HowlingMine::Config.params.merge(:api_key => HowlingMine::Config.api_key))
+      end
     end
   end
 
