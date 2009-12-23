@@ -14,7 +14,7 @@ INSTALLATION
 
 Install the rubygem from http://gemcutter.org
 
-Requires howlingmine-server redmine plugin 0.1
+Requires howlingmine-server redmine plugin 0.2.1
 
 EXAMPLES
 -------------
