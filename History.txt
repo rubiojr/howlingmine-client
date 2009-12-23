@@ -1,3 +1,8 @@
+=== 0.1.5 / 2009-12-23
+
+* Added Issue.count method
+* More tests
+
 === 0.1.4 / 2009-12-23
 
 * Added Issue.find method

@@ -11,4 +11,5 @@ lib/howlingmine/issue.rb
 redmine_test_files/database.yml
 redmine_test_files/redmine.db
 script/console
+test/client_test.rb
 test/issue_test.rb

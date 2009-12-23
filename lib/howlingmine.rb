@@ -10,5 +10,5 @@ require "#{File.join(File.dirname(__FILE__),'howlingmine/client')}"
 require "#{File.join(File.dirname(__FILE__),'howlingmine/issue')}"
 
 module HowlingMine
-  VERSION = '0.1.4'
+  VERSION = '0.1.5'
 end
