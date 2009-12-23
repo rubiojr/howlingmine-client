@@ -26,6 +26,19 @@ module HowlingMine
       def find
         RestClient.post("#{HowlingMine::Config.protocol}://#{HowlingMine::Config.host}:#{HowlingMine::Config.port}/howling_mine/find", HowlingMine::Config.params.merge(:api_key => HowlingMine::Config.api_key))
       end
+      
+      def count_issues
+        RestClient.post("#{HowlingMine::Config.protocol}://#{HowlingMine::Config.host}:#{HowlingMine::Config.port}/howling_mine/count_issues", HowlingMine::Config.params.merge(:api_key => HowlingMine::Config.api_key))
+      end
+      
+      def plugin_version
+        RestClient.post("#{HowlingMine::Config.protocol}://#{HowlingMine::Config.host}:#{HowlingMine::Config.port}/howling_mine/plugin_version", 
+          HowlingMine::Config.params.merge(:api_key => HowlingMine::Config.api_key))
+      end
+      
+      def count_projects
+        RestClient.post("#{HowlingMine::Config.protocol}://#{HowlingMine::Config.host}:#{HowlingMine::Config.port}/howling_mine/count_issues", HowlingMine::Config.params.merge(:api_key => HowlingMine::Config.api_key))
+      end
     end
   end
 

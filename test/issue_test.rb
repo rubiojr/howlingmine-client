@@ -146,5 +146,14 @@ class TestIssue < Test::Unit::TestCase
       HowlingMine::Issue.find 2
     end
   end
+  
+  def test_count
+    assert HowlingMine::Issue.count == 0
+    issue = HowlingMine::Issue.new
+    issue.subject = 'issue number 1'
+    issue.description = 'description'
+    assert issue.save
+    issue = HowlingMine::Issue.count == 1
+  end
 
 end

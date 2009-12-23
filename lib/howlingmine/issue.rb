@@ -17,6 +17,10 @@ module HowlingMine
       end
     end
     
+    def self.count
+      HowlingMine::Client.count_issues.to_i
+    end
+    
     def save
       client = HowlingMine::Client
       params = {
@@ -62,7 +66,7 @@ module HowlingMine
     def self.last
       find :last
     end
-  
+
     def status
       c = HowlingMine::Client
       HowlingMine::Config.params.merge!(:issue_id => id)
