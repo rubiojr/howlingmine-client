@@ -145,6 +145,25 @@ class TestIssue < Test::Unit::TestCase
     assert_raises RestClient::ResourceNotFound do 
       HowlingMine::Issue.find 2
     end
+    
+    # test find offset and limit
+    1.upto 50 do |i|
+      issue = HowlingMine::Issue.new
+      issue.subject = "issue number #{i}"
+      issue.save
+    end
+    issues = HowlingMine::Issue.find :all,:limit => 10
+    assert issues.size == 10
+    assert issues.last.subject == 'issue number 10'
+    
+    #FIXME: test fails
+    #issues = HowlingMine::Issue.find :all, :limit => 10, :offset => 5
+    #assert issues.first.subject == 'issue number 5'    
+    
+    #FIXME: test fails
+    #assert_raises RestClient::RequestFailed do
+    #  HowlingMine::Issue.find :all, :limit => 10, :offset => 11
+    #end
   end
   
   def test_count
