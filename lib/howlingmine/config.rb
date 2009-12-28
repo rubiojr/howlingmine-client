@@ -38,6 +38,14 @@ module HowlingMine
     def self.use_ssl=(yn)
       @@use_ssl ||= yn
     end
+
+    def self.path
+      @@path ||= ''
+    end
+
+    def self.path=(p)
+      @@path = p
+    end
     
     def self.project
       params[:project]
